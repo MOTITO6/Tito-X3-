@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Vault - بسلمة ❤️</title>
+    <!-- استدعاء خط "Tajawal" العربي الواضح والأنيق -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Reset & Global Typography --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: #07050d;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            color: #ffffff;
+            position: relative;
+            padding-bottom: 90px; /* مسافة متناسقة لعدم تغطية المشغل السفلي على المحتوى */
+        }
+
+        /* --- Ambient iPhone Glowing Orbs --- */
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(110px);
+            opacity: 0.55;
+            z-index: 1;
+            pointer-events: none;
+            animation: floatGlow 10s infinite alternate ease-in-out;
+        }
+
+        .glow-1 {
+            width: 420px;
+            height: 420px;
+            background: radial-gradient(circle, #ff1a75, #7928ca);
+            top: -80px;
+            right: -80px;
+        }
+
+        .glow-2 {
+            width: 380px;
+            height: 380px;
+            background: radial-gradient(circle, #ff007f, #00dfd8);
+            bottom: -80px;
+            left: -80px;
+            animation-delay: -5s;
+        }
+
+        @keyframes floatGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-30px, 40px) scale(1.15); }
+        }
+
+        /* --- Floating Hearts & Flowers --- */
+        .hearts-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .floating-heart {
+            position: absolute;
+            bottom: -50px;
+            color: rgba(255, 105, 180, 0.85);
+            animation: floatUp linear infinite;
+            filter: drop-shadow(0 0 5px rgba(255, 42, 117, 0.5));
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0; }
+            20% { opacity: 0.95; }
+            100% { transform: translateY(-110vh) rotate(360deg) scale(1.3); opacity: 0; }
+        }
+
+        /* --- Glassmorphic Container --- */
+        .glass-card {
+            position: relative;
+            z-index: 10;
+            width: 90%;
+            max-width: 420px;
+            padding: 35px 25px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(35px) saturate(210%);
+            -webkit-backdrop-filter: blur(35px) saturate(210%);
+            border-radius: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7),
+                        inset 0 1px 1px rgba(255, 255, 255, 0.3);
+            text-align: center;
+            transition: all 0.5s ease;
+        }
+
+        /* --- Avatar Styling with Orbiting Neon --- */
+        .avatar-container {
+            position: relative;
+            width: 135px;
+            height: 135px;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .rotating-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(#ff007f, #ffd700, #7928ca, #ff007f);
+            animation: spinRing 2.2s linear infinite;
+            filter: drop-shadow(0 0 14px rgba(255, 0, 127, 0.8));
+        }
+
+        .avatar-container img {
+            position: relative;
+            width: 122px;
+            height: 122px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #07050d;
+            z-index: 2;
+        }
+
+        @keyframes spinRing {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* --- High Contrast / Ticker --- */
+        .ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            padding: 10px 0;
+            margin-bottom: 22px;
+        }
+
+        .ticker {
+            display: flex;
+            white-space: nowrap;
+            animation: marquee 3.5s linear infinite;
+        }
+
+        .ticker-item {
+            font-size: 15px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #ff7eb3, #ffd700, #ff007f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding: 0 15px;
+            letter-spacing: 0.5px;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* --- Input & Buttons --- */
+        h2 { 
+            font-size: 26px; 
+            margin-bottom: 6px; 
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, #ffb3d9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.sub { 
+            color: rgba(255, 255, 255, 0.75); 
+            font-size: 14px; 
+            margin-bottom: 22px; 
+            font-weight: 500;
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 16px;
+            background: rgba(0, 0, 0, 0.45);
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
+            border-radius: 18px;
+            color: #ffffff;
+            font-size: 17px;
+            text-align: center;
+            outline: none;
+            margin-bottom: 16px;
+            letter-spacing: 3px;
+            transition: all 0.3s;
+        }
+
+        input[type="password"]:focus {
+            border-color: #ff007f;
+            box-shadow: 0 0 18px rgba(255, 0, 127, 0.5);
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        button.btn {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #ff007f, #7928ca);
+            color: #ffffff;
+            font-size: 17px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(255, 0, 127, 0.4);
+            transition: all 0.3s;
+        }
+
+        button.btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(255, 0, 127, 0.6);
+        }
+
+        .error-msg {
+            color: #ff4d6d;
+            font-size: 14px;
+            margin-top: 10px;
+            font-weight: 700;
+            display: none;
+        }
+
+        .shake { animation: shake 0.4s ease-in-out; }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-8px); }
+            40%, 80% { transform: translateX(8px); }
+        }
+
+        /* --- MAIN DASHBOARD --- */
+        #mainPage {
+            display: none;
+            width: 100%;
+            max-width: 480px;
+            z-index: 10;
+            padding: 20px 10px;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .main-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(35px) saturate(200%);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+        }
+
+        /* --- PROGRAMMER'S BLOOMING FLOWER --- */
+        .flower-wrapper {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .flower-svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 18px rgba(255, 0, 127, 0.7));
+        }
+
+        .flower-stem {
+            stroke-dasharray: 200;
+            stroke-dashoffset: 200;
+            animation: growStem 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes growStem {
+            to { stroke-dashoffset: 0; }
+        }
+
+        .petal {
+            transform-origin: 150px 170px;
+            opacity: 0;
+            transform: scale(0);
+            animation: bloomPetal 2s ease-out forwards;
+        }
+
+        .p1 { animation-delay: 2.2s; }
+        .p2 { animation-delay: 2.4s; }
+        .p3 { animation-delay: 2.6s; }
+        .p4 { animation-delay: 2.8s; }
+        .p5 { animation-delay: 3.0s; }
+        .p6 { animation-delay: 3.2s; }
+        .p7 { animation-delay: 3.4s; }
+
+        @keyframes bloomPetal {
+            0% { opacity: 0; transform: scale(0); }
+            60% { opacity: 0.85; }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .flower-glow {
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            background: radial-gradient(circle, rgba(255, 0, 127, 0.85), transparent 70%);
+            border-radius: 50%;
+            top: 38%;
+            opacity: 0;
+            animation: pulseGlow 3s infinite alternate 3.5s;
+        }
+
+        @keyframes pulseGlow {
+            0% { opacity: 0.3; transform: scale(0.8); }
+            100% { opacity: 0.95; transform: scale(1.35); }
+        }
+
+        /* --- APOLOGY SECTION (BASLAMA) --- */
+        .apology-card {
+            background: rgba(255, 0, 127, 0.08);
+            border: 1px solid rgba(255, 0, 127, 0.3);
+            border-radius: 26px;
+            padding: 22px;
+            text-align: center;
+        }
+
+        .apology-title {
+            color: #ffd700;
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+        }
+
+        .apology-text {
+            font-size: 16px;
+            line-height: 1.9;
+            color: #ffffff;
+            margin-bottom: 22px;
+            font-weight: 500;
+            text-align: justify;
+            text-align-last: center;
+        }
+
+        .btn-forgive {
+            background: linear-gradient(135deg, #ff007f, #00dfd8);
+            border: none;
+            padding: 16px 25px;
+            border-radius: 18px;
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0, 223, 216, 0.35);
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .btn-forgive:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 30px rgba(0, 223, 216, 0.55);
+        }
+
+        #forgiveStatus {
+            display: none;
+            margin-top: 16px;
+            padding: 14px;
+            background: rgba(46, 204, 113, 0.2);
+            border: 1px solid rgba(46, 204, 113, 0.5);
+            color: #2ecc71;
+            border-radius: 14px;
+            font-weight: 800;
+            font-size: 16px;
+            animation: fadeIn 0.5s ease;
+            text-shadow: 0 0 8px rgba(46, 204, 113, 0.4);
+        }
+
+        /* --- STICKY BOTTOM MUSIC PLAYER --- */
+        .music-player-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 10, 25, 0.85);
+            backdrop-filter: blur(25px) saturate(200%);
+            -webkit-backdrop-filter: blur(25px) saturate(200%);
+            border-top: 1px solid rgba(255, 0, 127, 0.3);
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.8);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 999;
+        }
+
+        .music-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .music-thumb {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 2px solid #ff007f;
+            box-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
+        }
+
+        .music-text h4 {
+            font-size: 15px;
+            color: #ffffff;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .music-text p {
+            font-size: 12px;
+            color: #ff7eb3;
+            font-weight: 500;
+        }
+
+        .music-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .play-btn {
+            background: linear-gradient(135deg, #ff007f, #7928ca);
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            color: white;
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.6);
+            transition: all 0.2s;
+        }
+
+        .play-btn:active {
+            transform: scale(0.92);
+        }
+
+        /* YouTube Container (Hidden) */
+        #youtubePlayer {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            pointer-events: none;
+            top: -9999px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ambient Glows -->
+    <div class="glow-orb glow-1"></div>
+    <div class="glow-orb glow-2"></div>
+
+    <!-- Floating Hearts -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- LOGIN PAGE -->
+    <div class="glass-card" id="loginCard">
+        <!-- Avatar on Login Page -->
+        <div class="avatar-container">
+            <div class="rotating-ring"></div>
+            <img src="https://i.ibb.co/nNMP9KLK/713a2d10ca8d.jpg" alt="Love Photo">
+        </div>
+
+        <h2>Welcome Beso ❣️.</h2>
+        <p class="sub">اكتبي الباسورد تحت ياعجله 😋❣️.</p>
+
+        <!-- Fast Ticker -->
+        <div class="ticker-wrap">
+            <div class="ticker">
+                <div class="ticker-item">Welcome To Web Baby ❣️.</div>
+                <div class="ticker-item">.</div>
+                <div class="ticker-item">Love you Baby ❣️.</div>
+                <div class="ticker-item">.</div>
+                <div class="ticker-item">7aMody .</div>
+                <div class="ticker-item">.</div>
+            </div>
+        </div>
+
+        <!-- Input Field -->
+        <input type="password" id="passInput" placeholder="Password..." autocomplete="off">
+        <button class="btn" onclick="checkPassword()">خشي من هنا يابه 😋.</button>
+        <div class="error-msg" id="errorMsg">الاهتمام مبيتطلبش علفكرا ، الباسورد غلط</div>
+    </div>
+
+    <!-- MAIN PAGE DASHBOARD -->
+    <div id="mainPage">
+        
+        <!-- Header Card with the NEW IMAGE -->
+        <div class="main-card">
+            <div class="avatar-container" style="width: 110px; height: 110px; margin-bottom: 12px;">
+                <div class="rotating-ring"></div>
+                <!-- الصورة الجديدة المطلوبة للصفحة الرئيسية -->
+                <img src="https://i.ibb.co/Zz2GxGDT/15c8ec1b2fb0.jpg" alt="New Profile Photo" style="width: 100px; height: 100px;">
+            </div>
+            <h2>نورتي ياوليه ياللي اسمك بسلمه 😍💗.</h2>
+            <p class="sub">خودي وردهه يابهه 😋✨</p>
+
+            <!-- INTERACTIVE BLOOMING FLOWER -->
+            <div class="flower-wrapper">
+                <div class="flower-glow"></div>
+                <svg class="flower-svg" viewBox="0 0 300 240" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="stemGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+                            <stop offset="0%" stop-color="#005c21" />
+                            <stop offset="100%" stop-color="#00ff87" />
+                        </linearGradient>
+                        <linearGradient id="petalGrad1" x1="0%" y1="100%" x2="0%" y2="0%">
+                            <stop offset="0%" stop-color="#ff007f" />
+                            <stop offset="100%" stop-color="#ff7eb3" />
+                        </linearGradient>
+                        <linearGradient id="petalGrad2" x1="0%" y1="100%" x2="0%" y2="0%">
+                            <stop offset="0%" stop-color="#7928ca" />
+                            <stop offset="100%" stop-color="#ffd700" />
+                        </linearGradient>
+                    </defs>
+
+                    <!-- Stem & Leaves -->
+                    <path class="flower-stem" d="M 150 240 Q 145 190 150 150" stroke="url(#stemGrad)" stroke-width="5" fill="none" stroke-linecap="round"/>
+                    <path class="flower-stem" d="M 148 200 Q 120 190 115 180 Q 135 185 148 198" stroke="url(#stemGrad)" stroke-width="3" fill="#00ff87"/>
+                    <path class="flower-stem" d="M 152 185 Q 180 175 185 165 Q 165 170 152 183" stroke="url(#stemGrad)" stroke-width="3" fill="#00ff87"/>
+
+                    <!-- Blooming Lotus Petals -->
+                    <path class="petal p1" d="M 150 160 C 90 160 70 120 100 90 C 130 120 145 150 150 160 Z" fill="url(#petalGrad1)" opacity="0.85"/>
+                    <path class="petal p2" d="M 150 160 C 210 160 230 120 200 90 C 170 120 155 150 150 160 Z" fill="url(#petalGrad1)" opacity="0.85"/>
+                    <path class="petal p3" d="M 150 160 C 100 140 90 80 125 60 C 140 100 148 140 150 160 Z" fill="url(#petalGrad2)" opacity="0.9"/>
+                    <path class="petal p4" d="M 150 160 C 200 140 210 80 175 60 C 160 100 152 140 150 160 Z" fill="url(#petalGrad2)" opacity="0.9"/>
+                    <path class="petal p5" d="M 150 160 C 120 130 120 60 150 40 C 155 70 152 130 150 160 Z" fill="url(#petalGrad1)"/>
+                    <path class="petal p6" d="M 150 160 C 180 130 180 60 150 40 C 145 70 148 130 150 160 Z" fill="url(#petalGrad1)"/>
+                    <path class="petal p7" d="M 150 160 C 135 110 140 45 150 30 C 160 45 165 110 150 160 Z" fill="#ffffff" opacity="0.95"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- SPECIAL APOLOGY CARD FOR BASLAMA -->
+        <div class="apology-card">
+            <div class="apology-title">
+                <span>🤍</span>
+                <span>Love You Baby</span>
+                <span>🤍</span>
+            </div>
+            <p class="apology-text">
+                ويي ، عارف اني بمشي وبرجع ف اي وقت و في حين بس عديها ، سوري يبيبي مش عارف تفكري  بس اني برجع وقت م اكون حابب وكده بس لا اخر مره كنت زعلان منك ف مشيت من غير ما اقول حاجه ، الزعل ممكن يغيرنا بس مش بارادتنا يقلبي ،  تزعليش مني يعجله ويعدي كله 😚💞.
+            </p>
+
+            <button class="btn-forgive" onclick="acceptForgiveness()">صـافـى يـلـبـن ؟ 😄✨️</button>
+
+            <div id="forgiveStatus">
+                بسس صافي يلبن و اشطا يحليب و نبدا صفحه جديده يقطهه 🐋💕.
+            </div>
+        </div>
+
+    </div>
+
+    <!-- STICKY MUSIC PLAYER AT THE BOTTOM -->
+    <div class="music-player-bar" id="musicBar">
+        <div class="music-info">
+            <img src="https://img.youtube.com/vi/WTwuzVXrwOs/hqdefault.jpg" alt="Song Cover" class="music-thumb">
+            <div class="music-text">
+                <h4>تووليت - جريئة اوي 🎵</h4>
+                <p id="playerStateText">جاري التشغيل...</p>
+            </div>
+        </div>
+        <div class="music-controls">
+            <button class="play-btn" id="playToggleBtn" onclick="togglePlay()">⏸️</button>
+        </div>
+    </div>
+
+    <!-- Hidden YouTube Player Container -->
+    <div id="youtubePlayer"></div>
+
+    <!-- YouTube IFrame API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+    <script>
+        // --- YouTube Player Logic ---
+        let player;
+        let isPlaying = false;
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtubePlayer', {
+                height: '0',
+                width: '0',
+                videoId: 'WTwuzVXrwOs',
+                playerVars: {
+                    'autoplay': 1,
+                    'controls': 0,
+                    'loop': 1,
+                    'playlist': 'WTwuzVXrwOs'
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            // كسر حظر المتصفحات للتشغيل التلقائي عن طريق البدء بـ playVideo
+            event.target.playVideo();
+        }
+
+        function onPlayerStateChange(event) {
+            const btn = document.getElementById('playToggleBtn');
+            const text = document.getElementById('playerStateText');
+
+            if (event.data == YT.PlayerState.PLAYING) {
+                isPlaying = true;
+                btn.innerHTML = "⏸️";
+                text.innerHTML = "جاري التشغيل ✨";
+            } else {
+                isPlaying = false;
+                btn.innerHTML = "▶️";
+                text.innerHTML = "متوقف مؤقتاً ⏸️";
+            }
+        }
+
+        function togglePlay() {
+            if(!player) return;
+            if (isPlaying) {
+                player.pauseVideo();
+            } else {
+                player.playVideo();
+            }
+        }
+
+        // --- Password Logic ---
+        function checkPassword() {
+            const pass = document.getElementById('passInput').value.trim();
+            const loginCard = document.getElementById('loginCard');
+            const mainPage = document.getElementById('mainPage');
+            const errorMsg = document.getElementById('errorMsg');
+
+            if (pass === "Beso" || pass === "beso") {
+                loginCard.style.transform = "scale(0.8)";
+                loginCard.style.opacity = "0";
+                
+                setTimeout(() => {
+                    loginCard.style.display = "none";
+                    mainPage.style.display = "block";
+                    explodeHearts();
+                    
+                    // تشغيل الأغنية تلقائياً عند فتح الصفحة الرئيسية مباشرة
+                    if (player && typeof player.playVideo === 'function') {
+                        player.playVideo();
+                    }
+                }, 400);
+            } else {
+                loginCard.classList.add('shake');
+                errorMsg.style.display = "block";
+                setTimeout(() => loginCard.classList.remove('shake'), 400);
+            }
+        }
+
+        document.getElementById('passInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') checkPassword();
+        });
+
+        // --- Floating Hearts Animation ---
+        const heartsContainer = document.getElementById('heartsContainer');
+        const heartIcons = ['❤️', '💖', '💗', '💕', '🌸', '🌹', '✨'];
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.innerText = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            heart.style.fontSize = (Math.random() * 16 + 14) + 'px';
+            heartsContainer.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 6000);
+        }
+        setInterval(createHeart, 230);
+
+        function explodeHearts() {
+            for(let i = 0; i < 35; i++) {
+                setTimeout(createHeart, i * 20);
+            }
+        }
+
+        // --- Forgiveness Handler ---
+        function acceptForgiveness() {
+            document.getElementById('forgiveStatus').style.display = 'block';
+            explodeHearts();
+        }
+    </script>
+</body>
+</html>
